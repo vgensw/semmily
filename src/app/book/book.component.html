@@ -70,59 +70,52 @@
               </section>
               <h4 style="text-align: center">Alle Gesundheitsdienstleister, die passende Termine anbieten</h4>
 
-              <md-list>
-                <md-list-item *ngFor="let expert of experts">
-                  <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="start" style="width: 100%">
-                    <div fxFlex.gt-sm="30%" fxFlex="100" class="padding">
-                      <h4 style="margin-bottom: 0">{{expert.vorname}} {{expert.nachname}}</h4>
-                    </div>
-                    <div fxFlex.gt-sm="30%" fxFlex="100" class="padding">
-                      <span>{{expert.beruf}}</span>
-                    </div>
-                    <div fxFlex.gt-sm="20%" fxFlex="100" class="padding">
-                      <button md-button (click)="openDialog(expert)">Anzeigen</button>
-                    </div>
-                    <div fxFlex.gt-sm="20%" fxFlex="100" class="padding">
-                      <button md-button (click)="nextStep()">Buchen</button>
+              <div>
+                <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="start" style="width: 100%; height: auto; padding-top: 2rem;">
+                  <div fxFlex.gt-sm="50%" fxFlex="100" class="padding">
+
+                  </div>
+                  <div fxFlex.gt-sm="50%" fxFlex="100" class="padding">
+                    <div fxlayout="row" fxLayoutWrap="wrap" fxLayoutAlign=" start">
+                      <div fxFlex.gt-sm="33%" style="text-align: center" fxFlex="100">
+                        <p>Sonntag</p>
+                      </div>
+                      <div fxFlex.gt-sm="33%" style="text-align: center" fxFlex="100">
+                        <p>Montag</p>
+                      </div>
+                      <div fxFlex.gt-sm="33%" style="text-align: center" fxFlex="100">
+                        <p>Dienstag</p>
+                      </div>
                     </div>
                   </div>
-                  <md-divider></md-divider>
-                </md-list-item>
-              </md-list>
-
-              <button md-button (click)="previousStep()">Zurück</button>
-
-            </section>
-          </md-tab>
-
-          <md-tab>
-            <section style="margin-top: 2rem;">
-              <section class="example-section" style="width:80%; margin-left: 10%; margin-right: 10%; margin-top: 2rem; margin-bottom: 2rem;">
-                <md-progress-bar
-                        class="example-margin"
-                        [color]="primary"
-                        [mode]="determinate"
-                        [value]="48"
-                        [bufferValue]="75">
-                </md-progress-bar>
-              </section>
-              <h4 style="text-align: center">Passende Termine</h4>
-
-              <div fxlayout="row" fxLayoutWrap="wrap" fxLayoutAlign=" start">
-                <div fxFlex.gt-sm="13%" style="text-align: center" fxFlex="100">
-                  <p>Montag</p>
-                <button md-button (click)="nextStep()">13:00</button>
                 </div>
-                <div fxFlex.gt-sm="13%" style="text-align: center" fxFlex="100">
-                  <p>Dienstag</p>
-                  <button md-button>13:00</button>
-                  <button md-button>14:00</button>
-                </div>
-                <div fxFlex.gt-sm="13%" style="text-align: center" fxFlex="100">
-                  <p>Mittwoch</p>
-                  <button md-button>13:00</button>
-                  <button md-button>14:00</button>
-                  <button md-button>18:00</button>
+                <div *ngFor="let expert of experts">
+                  <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="start" style="width: 100%; height: auto;">
+                    <div fxFlex.gt-sm="20%" fxFlex="100" class="padding">
+                      <img src="http://www.esteticamed.at/wp-content/uploads/2014/10/Karl-Gensthaler.jpg" alt="" style="border-radius: 100%;">
+                    </div>
+                    <div fxFlex.gt-sm="30%" fxFlex="100" class="padding">
+                      <h4 style="margin-bottom: 0; cursor: pointer" (click)="openDialog(expert)">{{expert.vorname}} {{expert.nachname}}</h4>
+                      <span>{{expert.beruf}}</span>
+                    </div>
+                    <div fxFlex.gt-sm="50%" fxFlex="100" class="padding">
+                      <div fxlayout="row" fxLayoutWrap="wrap" fxLayoutAlign=" start">
+                        <div fxFlex.gt-sm="33%" style="text-align: center" fxFlex="100">
+                          <button md-button (click)="nextStep()">13:00</button>
+                        </div>
+                        <div fxFlex.gt-sm="33%" style="text-align: center" fxFlex="100">
+                          <button md-button>13:00</button>
+                          <button md-button>14:00</button>
+                        </div>
+                        <div fxFlex.gt-sm="33%" style="text-align: center" fxFlex="100">
+                          <button md-button>13:00</button>
+                          <button md-button>14:00</button>
+                          <button md-button>18:00</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <md-divider style="margin-top: 1rem; margin-bottom: 1rem"></md-divider>
                 </div>
               </div>
 
