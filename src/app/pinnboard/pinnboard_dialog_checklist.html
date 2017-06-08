@@ -1,0 +1,47 @@
+<div class="gene-card-title">
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <div fxLayout="column">
+            <h4>{{expert}}</h4>
+        </div> <span fxFlex></span>
+        <button md-icon-button>
+            <md-icon>sync</md-icon>
+        </button>
+    </div>
+    <md-divider></md-divider>
+</div>
+<h1 md-dialog-title style="padding-top: 2rem; text-align: center">{{title}}</h1>
+<div md-dialog-content style="text-align: center; padding-left: 4rem; padding-right: 4rem">
+    <p>{{description}}</p>
+    <div *ngIf="imgPath !== ''">
+        <img src="{{imgPath}}" alt="title">
+    </div>
+    <div *ngIf="videoPath !== ''">
+
+    </div>
+</div>
+<!--<div md-dialog-content style="padding-left: 4rem; padding-right: 4rem; padding-top: 2rem">
+    <div fxLayout="row" fxLayoutWrap="wrap">
+        <div fxFlex.gt-sm="50" fxFlex="100">
+            <h4>Eine passende Checkliste:</h4>
+            <div class="todos">
+                <ul class="gene-list">
+                    <li *ngFor="let todo of todos;">
+                        <md-checkbox class="checkbox" [(ngModel)]="todo.completed"></md-checkbox> <span [ngClass]="{'checked': todo.completed}">{{ todo.newTodo }}</span> </li>
+                </ul>
+                <div>
+                    <div class="list-insert-bar" fxFlex>
+                        <button md-button>Zur eigenen Checkliste hinzufügen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxFlex.gt-sm="50" fxFlex="100">
+            <h4>Weitere Infos zum Freiraum Yoga</h4>
+            <button md-button>Nachricht senden</button>
+            <br>
+            <button md-button>Website besuchen</button>
+            <br>
+            <button md-button>Termin buchen</button>
+        </div>
+    </div>
+</div>-->

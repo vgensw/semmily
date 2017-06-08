@@ -1,0 +1,146 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+
+  <div fxFlex.gt-sm="66.66%" fxFlex="100">
+    <div fxLayout="row" fxLayoutWrap="wrap">
+      <div fxFlex.gt-sm="50%" fxFlex="100" *ngFor="let pin of pins; let i = index">
+        <md-card>
+          <div class="gene-card-title">
+            <div fxLayout="row" fxLayoutAlign="start center">
+              <div fxLayout="column">{{pin.shout}}
+              </div> <span fxFlex></span>
+              <md-chip-list class="mat-chip-list-stacked">
+                <md-chip selected="true" style="background-color:#4DA1FF">
+                  {{pin.expert}}
+                </md-chip>
+              </md-chip-list>
+            </div>
+            <md-divider></md-divider>
+          </div>
+          <div class="gene-card-content">
+            <h4>{{pin.title}}</h4>
+            <p>{{pin.description}}</p>
+            <div *ngIf="pin.imgPath !== ''">
+              <img src="{{pin.imgPath}}" alt="{{pin.title}}">
+            </div>
+          </div>
+          <div class="gene-card-footer">
+            <md-divider class="mat-divider"></md-divider>
+            <div fxlayout="row" fxlayoutalign="start center" style="box-sizing: border-box; max-height: 100%; display: flex; flex-direction: row; -webkit-box-orient: horizontal; -webkit-box-direction: normal; justify-content: flex-start; align-content: center; align-items: center; -webkit-box-pack: start; -webkit-box-align: center;">
+              <div>
+                <button class="mat-icon-button" md-icon-button (click)="openDialog(pin.title, pin.description, pin.imgPath, pin.videoPath, pin.expert)">
+                <span class="mat-button-wrapper">
+                   <md-icon >visibility</md-icon>
+                </span>
+                </button>
+                <button class="mat-icon-button" md-icon-button>
+                <span class="mat-button-wrapper">
+                   <md-icon >save</md-icon>
+                </span>
+                </button>
+              </div> <span fxflex="" style="flex: 1 1 0.000000001px; box-sizing: border-box; -webkit-box-flex: 1;"></span>
+              <button class="mat-icon-button" md-icon-button (click)="onDelete(i)">
+                <span class="mat-button-wrapper">
+                   <md-icon >delete</md-icon>
+                </span>
+              </button>
+            </div>
+          </div>
+        </md-card>
+      </div>
+    </div>
+  </div>
+
+  <div fxFlex.gt-sm="33.33%" fxFlex="100">
+    <md-card>
+      <div class="gene-card-content">
+        <h5 style="color: #FC6E4F">Hast du Fragen zu unserem Produkt?</h5>
+        <p>Schreibe uns in unserem Chat einfach eine Nachricht und wir antworten dir sofort!</p>
+      </div>
+      <button class="inline-block mat-mini-fab mat-primary" color="primary" md-card-icon="" md-mini-fab=""><span class="mat-button-wrapper">
+               <md-icon>email</md-icon>
+            </span>
+        <div class="mat-button-ripple mat-ripple mat-button-ripple-round" md-ripple=""></div>
+        <div class="mat-button-focus-overlay"></div>
+      </button>
+      <span>SCHREIBE UNS</span>
+    </md-card>
+    <md-card class="mat-cyan mat-card" *ngIf="isPregnant">
+      <div md-card-widget="">
+        <button class="inline-block mat-mini-fab mat-primary" color="primary" md-card-icon="" md-mini-fab=""><span class="mat-button-wrapper">
+               <md-icon role="img" class="material-icons mat-icon" aria-label="assessment">star</md-icon>
+            </span>
+          <div class="mat-button-ripple mat-ripple mat-button-ripple-round" md-ripple=""></div>
+          <div class="mat-button-focus-overlay"></div>
+        </button>
+        <div class="inline-block pad-wrap">
+          <h5 class="mrgn-b-none" md-card-widget-title="">Tage bis zur Geburt</h5>
+          <h5>{{settings.date}}</h5>
+        </div>
+      </div>
+
+    </md-card>
+
+    <md-card class="mat-cyan mat-card" *ngIf="isPregnant">
+      <div md-card-widget="">
+        <button class="inline-block mat-mini-fab mat-primary" color="primary" md-card-icon="" routerLink="/book"><span class="mat-button-wrapper">
+               <md-icon role="img" class="material-icons mat-icon" aria-label="assessment">today</md-icon>
+            </span>
+          <div class="mat-button-ripple mat-ripple mat-button-ripple-round" md-ripple=""></div>
+          <div class="mat-button-focus-overlay"></div>
+        </button>
+        <div class="inline-block pad-wrap">
+          <h5 class="mrgn-b-none" md-card-widget-title="">Dein nächster wichtiger Termin</h5>
+          <h5>1. Mutterkindpass- Beratung</h5>
+        </div>
+      </div>
+
+    </md-card>
+
+    <div fxFlex.gt-sm="100%" fxFlex="100" *ngFor="let pin of pregnantPins; let i = index">
+      <md-card *ngIf="isPregnant" class="mat-cyan" (click)="openDialog(pin.title, pin.description, pin.imgPath, pin.videoPath, pin.expert)">
+        <div class="gene-card-title">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <div fxLayout="column">{{pin.shout}}
+            </div> <span fxFlex></span>
+            <md-chip-list class="mat-chip-list-stacked">
+              <md-chip selected="true" style="background-color:#ffd740">
+                {{pin.expert}}
+              </md-chip>
+            </md-chip-list>
+          </div>
+          <md-divider></md-divider>
+        </div>
+        <div class="gene-card-content">
+          <h4>{{pin.title}}</h4>
+          <p>{{pin.description}}</p>
+          <div *ngIf="pin.imgPath !== ''">
+            <img src="{{pin.imgPath}}" alt="{{pin.title}}">
+          </div>
+        </div>
+        <div class="gene-card-footer">
+          <md-divider class="mat-divider"></md-divider>
+          <div fxlayout="row" fxlayoutalign="start center" style="box-sizing: border-box; max-height: 100%; display: flex; flex-direction: row; -webkit-box-orient: horizontal; -webkit-box-direction: normal; justify-content: flex-start; align-content: center; align-items: center; -webkit-box-pack: start; -webkit-box-align: center;">
+            <div>
+              <button class="mat-icon-button" md-icon-button>
+                <span class="mat-button-wrapper">
+                   <md-icon  style="color:white;">visibility</md-icon>
+                </span>
+              </button>
+              <button class="mat-icon-button" md-icon-button (click)="onDelete(i)">
+                <span class="mat-button-wrapper">
+                   <md-icon style="color:white;" >save</md-icon>
+                </span>
+              </button>
+            </div> <span fxflex="" style="flex: 1 1 0.000000001px; box-sizing: border-box; -webkit-box-flex: 1;"></span>
+            <button class="mat-icon-button" md-icon-button (click)="onDelete(i)">
+                <span class="mat-button-wrapper">
+                   <md-icon style="color:white;" >delete</md-icon>
+                </span>
+            </button>
+          </div>
+        </div>
+      </md-card>
+    </div>
+  </div>
+
+</div>

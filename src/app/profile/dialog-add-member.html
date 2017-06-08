@@ -1,0 +1,15 @@
+<h1 md-dialog-title style="padding-top: 1rem">Neues Familienmitglied hinzufügen</h1>
+<md-divider></md-divider>
+<div md-dialog-content style="padding-top: 1rem; padding-bottom: 1rem">
+    <form #form="ngForm">
+        <div fxLayout="column">
+            <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="space-between center">
+                <md-input-container fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex="100">
+                    <input mdInput name="vorname" placeholder="Vorname" #nameInput required > </md-input-container>
+                <md-input-container fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex="100">
+                    <input mdInput name="rolle" type="text" required #roleInput ngModel placeholder="Rolle"> </md-input-container>
+            </div>
+        </div>
+        <button md-raised-button color="primary" type="submit" [disabled]="!form.valid" (click)="sendMember()">Hinzufügen</button>
+    </form>
+</div>

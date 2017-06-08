@@ -1,0 +1,70 @@
+<h1 md-dialog-title style="padding-top: 1rem">Terminhistorie: Arzttermin bei Dr. Maier</h1>
+<md-divider></md-divider>
+<div md-dialog-content style="padding-top: 1rem; padding-bottom: 1rem">
+        <div fxlayout="column" fxFlex="100">
+            <h4>Datum letzter Termin:</h4>
+            <p>21.03.2017</p>
+            <h4>neuen Termin buchen:</h4>
+            <button md-button>Termin</button>
+            <p></p>
+            <md-divider></md-divider>
+            <br>
+            <h4>Anmerkung vom Arzt:</h4>
+            <p>Sehr geehrte Frau Maier! Bitte folgende Tabletten einnehmen!</p>
+            <br>
+            <md-divider></md-divider>
+            <br>
+            <h4>Eigene Anmerkungen:</h4>
+            <p>Ich habe keine eigenen Anmerkungen</p>
+            <md-divider></md-divider>
+            <br>
+            <h4>Pinhistorie zu diesem Termin</h4>
+
+            <div fxFlex.gt-sm="100%" fxFlex="100">
+                <md-card class="mat-cyan" *ngFor="let pin of pins; let i = index">
+                    <div class="gene-card-title">
+                        <div fxLayout="row" fxLayoutAlign="start center">
+                            <div fxLayout="column">{{pin.shout}}
+                            </div> <span fxFlex></span>
+                            <md-chip-list class="mat-chip-list-stacked">
+                                <md-chip selected="true" style="background-color:#ffd740">
+                                    {{pin.expert}}
+                                </md-chip>
+                            </md-chip-list>
+                        </div>
+                        <md-divider></md-divider>
+                    </div>
+                    <div class="gene-card-content">
+                        <h4>{{pin.title}}</h4>
+                        <p>{{pin.description}}</p>
+                        <div *ngIf="pin.imgPath !== ''">
+                            <img src="{{pin.imgPath}}" alt="{{pin.title}}">
+                        </div>
+                    </div>
+                    <div class="gene-card-footer">
+                        <md-divider class="mat-divider"></md-divider>
+                        <div fxlayout="row" fxlayoutalign="start center" style="box-sizing: border-box; max-height: 100%; display: flex; flex-direction: row; -webkit-box-orient: horizontal; -webkit-box-direction: normal; justify-content: flex-start; align-content: center; align-items: center; -webkit-box-pack: start; -webkit-box-align: center;">
+                            <div>
+                                <button class="mat-icon-button" md-icon-button>
+                <span class="mat-button-wrapper">
+                   <md-icon  style="color:white;">visibility</md-icon>
+                </span>
+                                </button>
+                                <button class="mat-icon-button" md-icon-button (click)="onDelete(i)">
+                <span class="mat-button-wrapper">
+                   <md-icon style="color:white;" >save</md-icon>
+                </span>
+                                </button>
+                            </div> <span fxflex="" style="flex: 1 1 0.000000001px; box-sizing: border-box; -webkit-box-flex: 1;"></span>
+                            <button class="mat-icon-button" md-icon-button (click)="onDelete(i)">
+                <span class="mat-button-wrapper">
+                   <md-icon style="color:white;" >delete</md-icon>
+                </span>
+                            </button>
+                        </div>
+                    </div>
+                </md-card>
+            </div>
+
+        </div>
+</div>

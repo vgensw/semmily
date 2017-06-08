@@ -1,0 +1,11 @@
+[
+    {
+        "name": "Dr Müller",
+        "ort": "Wiener Neustadt",
+        "kosten": "22€ / Stunde",
+        "bewertung": 5,
+        "information": "link",
+        "buchen": "link"
+    }
+
+]

@@ -1,0 +1,168 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <div fxFlex.gt-sm="66.66%" fxFlex="100">
+    <md-card>
+      <div class="gene-card-title">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <div fxLayout="column">
+            <h4>Allgemeine Daten</h4>
+          </div> <span fxFlex></span>
+          <button md-icon-button>
+            <md-icon>add</md-icon>
+          </button>
+        </div>
+        <md-divider></md-divider>
+      </div>
+      <div class="gene-card-content">
+        <p>Diese Daten werden ausschließlich für die Terminbuchung und das Anamneseblatt mit deinem Gesundheitsdienstleister verwendet.
+        Es erspart dir und dem Arzt bei deinem Besuch Zeit, sodass sich der Mediziner mehr Zeit für dich nehmen kann.</p>
+        <form>
+          <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="space-between center">
+            <div fxFlex.gt-sm="59" fxFlex.gt-xs="59" fxFlex="100">
+              <md-input-container class="full-wid">
+                <input mdInput placeholder="Krankenkasse" value="{{healthRecordInput.kk}}">
+              </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="39" fxFlex.gt-xs="39" fxFlex="100">
+              <button md-icon-button [mdMenuTriggerFor]="menu">
+                <md-icon>more_vert</md-icon>
+              </button>
+              <md-menu #menu="mdMenu">
+                <button md-menu-item>
+                  <md-icon>dialpad</md-icon>
+                  <span>Zugriffsrechte</span>
+                </button>
+                <button md-menu-item>
+                  <md-icon>voicemail</md-icon>
+                  <span>Zugriffsdauer</span>
+                </button>
+              </md-menu>
+              <md-checkbox>Aktivieren</md-checkbox>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="space-between center">
+            <div fxFlex.gt-sm="59" fxFlex.gt-xs="59" fxFlex="100">
+              <md-input-container class="full-wid">
+                <input mdInput placeholder="Vorname" value="{{healthRecordInput.vname}}">
+              </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="39" fxFlex.gt-xs="39" fxFlex="100">
+              <button md-icon-button [mdMenuTriggerFor]="menu">
+                <md-icon>more_vert</md-icon>
+              </button>
+              <md-menu #menu="mdMenu">
+                <button md-menu-item>
+                  <md-icon>dialpad</md-icon>
+                  <span>Zugriffsrechte</span>
+                </button>
+                <button md-menu-item>
+                  <md-icon>voicemail</md-icon>
+                  <span>Zugriffsdauer</span>
+                </button>
+              </md-menu>
+              <md-checkbox>Aktivieren</md-checkbox>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="space-between center">
+            <div fxFlex.gt-sm="59" fxFlex.gt-xs="59" fxFlex="100">
+              <md-input-container class="full-wid">
+                <input mdInput placeholder="Nachname" value="{{healthRecordInput.nname}}">
+              </md-input-container>
+            </div>
+            <div fxFlex.gt-sm="39" fxFlex.gt-xs="39" fxFlex="100">
+              <button md-icon-button [mdMenuTriggerFor]="menu">
+                <md-icon>more_vert</md-icon>
+              </button>
+              <md-menu #menu="mdMenu">
+                <button md-menu-item>
+                  <md-icon>dialpad</md-icon>
+                  <span>Zugriffsrechte</span>
+                </button>
+                <button md-menu-item>
+                  <md-icon>voicemail</md-icon>
+                  <span>Zugriffsdauer</span>
+                </button>
+              </md-menu>
+              <md-checkbox>Aktivieren</md-checkbox>
+            </div>
+          </div>
+          <button md-button type="submit" >Speichern</button>
+
+        </form>
+      </div>
+    </md-card>
+    <md-card>
+      <div class="gene-card-title">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <div fxLayout="column">
+            <h4>Deine Gesundheitsdienstleister</h4>
+          </div> <span fxFlex></span>
+          <button md-icon-button>
+            <md-icon>add</md-icon>
+          </button>
+        </div>
+        <md-divider></md-divider>
+      </div>
+      <div class="gene-card-content">
+        <p>Verbinde dich mit deinen persönlichen Gesundheitsdienstleistern und schalte besondere Funktionen frei. Neben Pins und Benachrichtigungen kannst du ihnen Nachrichten und mehr schicken.</p>
+        <md-list>
+          <md-list-item *ngFor="let expert of experts">
+            <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="start" style="width: 100%; vertical-align: middle">
+              <div fxFlex.gt-sm="20" fxFlex="100" class="padding">
+                <h4 style="margin-bottom: 0">{{expert.vorname}} {{expert.nachname}}</h4>
+              </div>
+              <div fxFlex.gt-sm="20" fxFlex="100" class="padding">
+                <p style="margin-bottom: 0">{{expert.beruf}}</p>
+              </div>
+              <div fxFlex.gt-sm="20" fxFlex="100" class="padding">
+                <button md-button>Termin</button>
+              </div>
+              <div fxFlex.gt-sm="10" fxFlex="100" class="padding">
+
+              </div>
+              <div fxFlex.gt-sm="10" fxFlex="100" class="padding">
+                <button md-icon-button (click)="openDialog(expert)">
+                  <md-icon>visibility</md-icon>
+                </button>
+              </div>
+              <div fxFlex.gt-sm="10" fxFlex="100" class="padding">
+                <button md-icon-button>
+                  <md-icon>person_pin</md-icon>
+                </button>
+              </div>
+              <div fxFlex.gt-sm="10" fxFlex.gt-xs="39" fxFlex="100">
+                <button md-icon-button [mdMenuTriggerFor]="menu_expert">
+                  <md-icon>more_vert</md-icon>
+                </button>
+                <md-menu #menu_expert="mdMenu">
+                  <button md-menu-item>
+                    <md-icon>dialpad</md-icon>
+                    <span>Zur Website</span>
+                  </button>
+                  <button md-menu-item>
+                    <md-icon>voicemail</md-icon>
+                    <span>Anrufen</span>
+                  </button>
+                  <button md-menu-item>
+                    <md-icon>voicemail</md-icon>
+                    <span>Bearbeiten</span>
+                  </button>
+                  <button md-menu-item>
+                    <md-icon>voicemail</md-icon>
+                    <span>Berechtigungen</span>
+                  </button>
+                  <button md-menu-item>
+                    <md-icon>voicemail</md-icon>
+                    <span>Verbindung trennen</span>
+                  </button>
+                </md-menu>
+              </div>
+            </div>
+          </md-list-item>
+        </md-list>
+      </div>
+    </md-card>
+  </div>
+  <div fxFlex.gt-sm="33.33%" fxFlex="100">
+
+  </div>
+</div>

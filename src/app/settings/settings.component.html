@@ -1,0 +1,56 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <div fxFlex.gt-sm="66.66%" fxFlex="100">
+    <md-card>
+      <div class="gene-card-title">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <div fxLayout="column">
+            <h4>Deine Einstellungen</h4>
+          </div> <span fxFlex></span>
+          <button md-icon-button>
+            <md-icon>add</md-icon>
+          </button>
+        </div>
+        <md-divider></md-divider>
+      </div>
+      <div class="gene-card-content">
+        <p>Bei den Einstellungen kannst du dein Profil personalisieren und an deine derzeitigen Lebensbedürfnisse anpassen.</p>
+        <form>
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <div fxLayout="column">
+              <h5>Befinden Sie sich derzeit in der Schwangerschaft?</h5>
+            </div> <span fxFlex></span>
+            <md-checkbox class="example-margin" [formControl]="form.controls['pregnant']" [align]="left">
+              Ja!
+            </md-checkbox>
+          </div>
+          <br>
+          <div fxLayout="row" fxLayoutAlign="start center" >
+            <div fxLayout="column">
+              <h5>Dürfen wir Ihnen schwangerschaftsspezifische Pins schicken?</h5>
+            </div> <span fxFlex></span>
+            <md-checkbox class="example-margin" [formControl]="form.controls['pregnantPin']" [align]="left">
+              Ja!
+            </md-checkbox>
+          </div>
+          <br>
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <div fxLayout="column">
+              <h5>Dürfen wir Ihr Portal an Ihre Schwangerschaft grafisch anpassen?</h5>
+            </div> <span fxFlex></span>
+            <md-checkbox class="example-margin" [formControl]="form.controls['pregnantDesign']" [align]="left">
+              Ja!
+            </md-checkbox>
+          </div>
+
+
+          <button md-raised-button color="primary" type="submit" (click)="saveSettings()">Speichern</button>
+
+
+        </form>
+      </div>
+    </md-card>
+  </div>
+  <div fxFlex.gt-sm="33.33%" fxFlex="100">
+
+  </div>
+</div>
